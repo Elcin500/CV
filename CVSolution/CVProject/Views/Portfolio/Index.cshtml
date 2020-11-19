@@ -1,0 +1,53 @@
+﻿@model PortfolioViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="col-md-8">
+
+    <!-- MAIN NAV -->
+
+    <div class="inside-sec">
+        <!-- BIO AND SKILLS -->
+        <h5 class="tittle">PORTFOLIO</h5>
+
+        <!-- PORTFOLIO -->
+        <section class="portfolio padding-top-50 padding-bottom-50">
+            <!-- Work Filter -->
+            <ul class="tabs portfolio-filter text-center margin-bottom-30">
+                <li class="filter" data-filter="all">all</li>
+                @foreach (var item in Model.PortfolioCategories)
+                {
+                    <li class="filter" data-filter=".category-@item.Id">@item.Name</li>
+                }
+            </ul>
+
+            <!-- PORTFOLIO ITEMS -->
+            <div id="Container" class="item-space row col-3">
+
+                @foreach (var item in Model.Portfolios)
+                {
+                    <!-- ITEM -->
+                    <article class="portfolio-item mix category-@item.CategoryId  design photo visual">
+                        <div class="portfolio-image">
+                            <a href="#."> <img class="img-responsive" alt="Open Imagination" src="~/assets/images/portfolio/5/@item.ImgPath"> </a>
+                            <div class="portfolio-overlay style-4">
+                                <div class="detail-info">
+                                    <div class="position-center-center">
+                                        <h3 class="no-margin">Assembly Branding</h3>
+                                        <span><a href="#.">Fashion / trending</a></span> <a href="#." class="go"><i class="fa fa-search"></i></a> <a href="#." class="go"><i class="fa fa-link"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                }
+
+            </div>
+        </section>
+    </div>
+</div>
+
+
+

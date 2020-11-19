@@ -1,7 +1,100 @@
-﻿
+﻿@model Person
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
+<div class="col-md-8">
+    <div class="inside-sec">
+        <!-- BIO AND SKILLS -->
+        <h5 class="tittle">About Me</h5>
+
+        <!-- Blog -->
+        <section class="about-me padding-top-10 padding-bottom-50">
+
+            <!-- Personal Info -->
+            <ul class="personal-info">
+                <li>
+                    <p> <span> Ad</span> @Model.FullName </p>
+                </li>
+                <li>
+                    <p> <span> Yaş</span> @Model.Age </p>
+                </li>
+                <li>
+                    <p> <span> Yer</span> @Model.Location </p>
+                </li>
+                <li>
+                    <p> <span> Təcrübəs</span> @Model.ExperienceYear </p>
+                </li>
+                <li>
+                    <p> <span> Dərəcə</span> @Model.Degree </p>
+                </li>
+                <li>
+                    <p> <span> Kariyera</span> @Model.CareerLevel </p>
+                </li>
+                <li>
+                    <p> <span> Telefon</span> @Model.Phone  </p>
+                </li>
+                <li>
+                    <p> <span> Faks</span> @Model.Fax </p>
+                </li>
+                <li>
+                    <p> <span> E-mail</span> <a href="#.">@Model.Email </a> </p>
+                </li>
+                <li>
+                    <p> <span> Sayt</span><a href="#."> @Model.Website  </a></p>
+                </li>
+            </ul>
+
+            <!-- I’m Web Designer -->
+            <h5 class="tittle">I’m @Model.JobTitle</h5>
+            <div class="padding-20">
+                <p>
+                    @if (Model.Bio.Length > 175)
+                    {
+                        @Model.Bio.Substring(0, 175)
+                    }
+                    else
+                    {
+                        @Model.Bio
+                    }
+                </p>
+            </div>
+
+            <!-- Skills -->
+            <h5 class="tittle">Skills</h5>
+
+            <!-- Sound Engineering -->
+            <div class="panel-group accordion padding-20" id="accordion">
+                @foreach (var item in Model.Skills.Where(s=>s.Category=="Hard Skill"))
+                {
+                    <div class="panel panel-default">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <!-- PANEL HEADING -->
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed"> @item.Name</a> </h4>
+                                </div>
+                            </div>
+
+                            <!-- Skillls Bars -->
+                            <div class="col-sm-8">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="@item.Percent" aria-valuemin="0" aria-valuemax="100" style="width: @item.Percent%;"> <span class="sr-only">@item.Percent% Complete</span> </div>
+                                </div>
+
+                                <!-- Skillls Text -->
+                                <div id="collapseOne" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>@item.Description</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </section>
+    </div>
+</div>

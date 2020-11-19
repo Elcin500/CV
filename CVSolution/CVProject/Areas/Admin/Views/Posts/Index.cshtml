@@ -1,0 +1,155 @@
+﻿@model IEnumerable<Post>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@section css{
+    <style>
+        img {
+            width: 70px;
+        }
+    </style>
+}
+<div class="content">
+    <ul class="breadcrumb">
+        <li>
+            <p>YOU ARE HERE</p>
+        </li>
+        <li><a href="#" class="active">Paylasimlar</a> </li>
+    </ul>
+    <div class="page-title">
+        <i class="icon-custom-left"></i>
+        <h3><a asp-action="Index">Paylasimlar</a> - <span class="semi-bold">Əsas səhifə</span></h3>
+    </div>
+    <div class="row" id="inbox-wrapper">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="grid simple">
+                        <div class="grid-body no-border email-body">
+                            <br>
+                            <div class="row-fluid">
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+
+                                            <th>
+
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Title)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Author)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Description)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.CreatedDate)
+                                            </th>
+                                            <th>
+                                                <a asp-action="Create" class="btn btn-sm btn-success"><i class="fa fa-plus"> </i></a>
+
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <img class="img-fluid" src="~/uploads/@item.ImagePath" alt="" />
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Title)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Author)
+                                                </td>
+                                                <td>
+                                                    @if (item.Description.Length > 100)
+                                                    {
+                                                        @item.Description.Substring(1, 100)
+                                                    }
+                                                    else
+                                                    {
+                                                        @item.Description
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                                                </td>
+                                                <td style="min-width:150px;">
+                                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">
+                                                        <i class="fa fa-pencil"> </i>
+                                                    </a>
+                                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">
+                                                        <i class="fa fa-location-arrow"> </i>
+                                                    </a>
+                                                    <a onclick="postRemove(@item.Id,`@item.Title`)" class="btn btn-sm btn-danger">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+@section scripts{
+
+    <script src="~/lib/sweetalert/sweetalert.min.js"></script>
+
+    <script>
+        function postRemove(_id,name) {
+            swal({
+                title: "Are you sure?",
+                text:  `${name} bazadan silinecek! Razisinizmi?`,
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+
+                        $.ajax({
+                            url: `@Url.Action("Delete")`,
+                            type: "post",
+                            data: { id: _id },
+                            success: function (response) {
+
+                                swal("Məlumat Silindi!", {
+                                    icon: "success",
+                                });
+                                window.location.reload();
+                            },
+                            error: function (response) {
+                                alert("Xeta bas verdi");
+                                console.log(response.error);
+                            }
+                        })
+
+                    }
+                    else {
+                        swal("Məlumat silinmədi!");
+                    }
+                });
+        }
+    </script>
+
+}

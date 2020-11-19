@@ -1,0 +1,131 @@
+﻿@model CVProject.Models.Entity.Study
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="content">
+    <ul class="breadcrumb">
+        <li>
+            <p>YOU ARE HERE</p>
+        </li>
+        <li><a href="#" class="active">Tehsil</a> </li>
+    </ul>
+    <div class="page-title">
+        <i class="icon-custom-left"></i>
+        <h3><a asp-action="Index">Tehsil</a> - <span class="semi-bold">Yenisini Elave et</span></h3>
+    </div>
+    <div class="row" id="inbox-wrapper">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="grid simple">
+                        <div class="grid-body no-border email-body">
+                            <br>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <form asp-action="Create" id="studyForm" enctype="multipart/form-data">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="form-group">
+                                            <label asp-for="Name" class="control-label"></label>
+                                            <input asp-for="Name" class="form-control" />
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="StudyArea" class="control-label"></label>
+                                            <input asp-for="StudyArea" class="form-control" />
+                                            <span asp-validation-for="StudyArea" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Years" class="control-label"></label>
+                                            <input asp-for="Years" class="form-control" />
+                                            <span asp-validation-for="Years" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Location" class="control-label"></label>
+                                            <input asp-for="Location" class="form-control" />
+                                            <span asp-validation-for="Location" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Description" class="control-label"></label>
+                                            <input asp-for="Description" class="form-control" />
+                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <div id="diploma-viewer" class="alert alert-success d-none" role="alert"></div>
+                                            <input type="file" name="diploma" id="diplomaFile" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" value="Create" class="btn btn-default" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section scripts{
+
+    <script src="~/lib/ckeditor5/ckeditor.js"></script>
+    <script>
+        $('#studyForm').on("keyup keypress", function (e) {
+            var keycode = e.keycode || e.which;
+            if (keycode == 13) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        ClassicEditor
+            .create(document.querySelector('#Body'))
+            .catch(error => {
+                console.error(error);
+            });
+
+
+
+        $('#diplomaFile').change(function (e) {
+
+            let reader = new FileReader();
+            reader.addEventListener("load", function () {
+                $('#diploma-viewer').removeClass('d-none');
+                $('#diploma-viewer').text(`Fayl Secildi`);
+            }, false);
+
+            reader.readAsDataURL(e.target.files[0]);
+
+
+        });
+    </script>
+
+}
+@section css{
+    <style>
+        .ck-editor__editable {
+            min-height: 200px !important;
+        }
+
+        #blogFile {
+            display: none;
+        }
+
+        #blogFile-viewer {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+}

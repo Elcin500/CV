@@ -1,0 +1,135 @@
+﻿@model CVProject.Models.Entity.Study
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+
+<div class="content">
+    <ul class="breadcrumb">
+        <li>
+            <p>YOU ARE HERE</p>
+        </li>
+        <li><a href="#" class="active">Tehsil</a> </li>
+    </ul>
+    <div class="page-title">
+        <i class="icon-custom-left"></i>
+        <h3><a asp-action="Index">Tehsil</a> - <span class="semi-bold">Yenisini Elave et</span></h3>
+    </div>
+    <div class="row" id="inbox-wrapper">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="grid simple">
+                        <div class="grid-body no-border email-body">
+                            <br>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <form asp-action="Edit" id="studyForm" enctype="multipart/form-data">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <input type="hidden" asp-for="Id" />
+                                        <div class="form-group">
+                                            <label asp-for="Name" class="control-label"></label>
+                                            <input asp-for="Name" class="form-control" />
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="StudyArea" class="control-label"></label>
+                                            <input asp-for="StudyArea" class="form-control" />
+                                            <span asp-validation-for="StudyArea" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Years" class="control-label"></label>
+                                            <input asp-for="Years" class="form-control" />
+                                            <span asp-validation-for="Years" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Location" class="control-label"></label>
+                                            <input asp-for="Location" class="form-control" />
+                                            <span asp-validation-for="Location" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Description" class="control-label"></label>
+                                            <input asp-for="Description" class="form-control" />
+                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <div id="diploma-viewer-div" class="alert alert-success d-none" role="alert"></div>
+                                            <label id="diploma-viewer" data-fileUrl="~/uploads/@Model.DiplomaPath" class="alert alert-success d-none" role="alert">
+                                                <input type="hidden" asp-for="DiplomaPathTemp" value="@Model.DiplomaPath" />
+                                                <span>&times;</span>
+                                            </label>
+                                            <input type="file" name="diploma"  id="diplomaFile" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" value="Save" class="btn btn-default" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+@section scripts{
+
+    <script src="~/lib/ckeditor5/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#Body'))
+            .catch(error => {
+                console.error(error);
+            });
+
+        $('#diploma-viewer > span').click(function (e) {
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            $(e.currentTarget).closest('label').find('input').val('');
+
+            if (!$('#diploma-viewer-div').hasClass('d-none')) {
+                $('#diploma-viewer-div').addClass('d-none');
+            }
+
+            $('#diplomaFile').val('');
+        })
+
+        $('#diplomaFile').change(function (e) {
+
+            let reader = new FileReader();
+            reader.addEventListener("load", function () {
+                $('#diploma-viewer-div').removeClass('d-none');
+                $('#diploma-viewer-div').text(`Fayl Secildi`);
+            }, false);
+
+            reader.readAsDataURL(e.target.files[0]);
+
+        });
+
+        let url = $('#diploma-viewer')
+            .click(function () {
+                if (!$('#diploma-viewer-div').hasClass('d-none')) {
+                    $('#diploma-viewer-div').addClass('d-none');
+                }
+            })
+            .data('fileUrl');
+
+        if (url != undefined) {
+            $('#diploma-viewer-div').removeClass('d-none');
+            $('#diploma-viewer-div').text(`Fayl Movcuddur`);
+        }
+
+    </script>
+
+}

@@ -1,0 +1,158 @@
+﻿@model CVProject.Models.Entity.Experience
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="content">
+    <ul class="breadcrumb">
+        <li>
+            <p>YOU ARE HERE</p>
+        </li>
+        <li><a href="#" class="active">Təcrübələr</a> </li>
+    </ul>
+    <div class="page-title">
+        <i class="icon-custom-left"></i>
+        <h3><a asp-action="Index">Təcrübələr</a> - <span class="semi-bold">Düzəliş</span></h3>
+    </div>
+    <div class="row" id="inbox-wrapper">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="grid simple">
+                        <div class="grid-body no-border email-body">
+                            <br>
+                            <div class="row-fluid">
+                                <div class="col-md-4">
+                                    <form asp-action="Edit" id="experienceForm" enctype="multipart/form-data">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <input type="hidden" asp-for="Id" />
+                                        <div class="form-group">
+                                            <label asp-for="Years" class="control-label"></label>
+                                            <input asp-for="Years" class="form-control" />
+                                            <span asp-validation-for="Years" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="experienceFile" data-imgurl="/uploads/@Model.CompanyLogoImgPath" id="experienceFile-viewer">
+                                                <input type="hidden" asp-for="CompanyLogoImgPathTemp" value="@Model.CompanyLogoImgPath" />
+                                                <span>&times;</span>
+                                            </label>
+                                            <input type="file" name="experienceImage" id="experienceFile" accept="image/x-png,image/gif,image/jpeg,image.jpg" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="JobTitle" class="control-label"></label>
+                                            <input asp-for="JobTitle" class="form-control" />
+                                            <span asp-validation-for="JobTitle" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="JobArea" class="control-label"></label>
+                                            <input asp-for="JobArea" class="form-control" />
+                                            <span asp-validation-for="JobArea" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Location" class="control-label"></label>
+                                            <input asp-for="Location" class="form-control" />
+                                            <span asp-validation-for="Location" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Description" class="control-label"></label>
+                                            <input asp-for="Description" class="form-control" />
+                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" value="Save" class="btn btn-default" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+@section scripts{
+
+    <script src="~/lib/ckeditor5/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#Body'))
+            .catch(error => {
+                console.error(error);
+            });
+
+        $('#experienceFile-viewer > span').click(function (e) {
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            $(e.currentTarget).closest('label').css('background-image', 'none');
+            $(e.currentTarget).closest('label').find('input').val('');
+
+            $('#experienceFile').val('');
+        })
+
+        $('#experienceFile').change(function (e) {
+
+            let reader = new FileReader();
+            reader.addEventListener("load", function () {
+                $('#experienceFile-viewer').css({
+                    'background-image': `url(${reader.result})`
+                })
+            }, false);
+
+            reader.readAsDataURL(e.target.files[0]);
+
+        });
+
+        let url = $('#experienceFile-viewer')
+            .click(function () {
+                $('#experienceFile-viewer').css('background-image','none')
+            })
+            .data('imgurl');
+
+        if (url != undefined) {
+            $('#experienceFile-viewer').css({
+                'background-image': `url(${url})`
+            })
+        }
+
+    </script>
+
+}
+
+
+@section css{
+    <style>
+        .ck-editor__editable {
+            min-height: 200px !important;
+        }
+
+        #experienceFile {
+            display: none;
+        }
+
+        #experienceFile-viewer {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #experienceFile-viewer > span {
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid red;
+            cursor: pointer;
+        }
+    </style>
+}

@@ -5,11 +5,259 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Content Remove="wwwroot\assets\css\bootstrap\bootstrap.min.css" />
+    <Content Remove="wwwroot\assets\css\font-awesome.min.css" />
+    <Content Remove="wwwroot\assets\css\fonts\glyphicons-halflings-regular-2.html" />
+    <Content Remove="wwwroot\assets\css\fonts\glyphicons-halflings-regular-3.html" />
+    <Content Remove="wwwroot\assets\css\fonts\glyphicons-halflings-regular-4.html" />
+    <Content Remove="wwwroot\assets\css\fonts\glyphicons-halflings-regular-5.html" />
+    <Content Remove="wwwroot\assets\css\fonts\glyphicons-halflings-regular.html" />
+    <Content Remove="wwwroot\assets\css\fonts\glyphicons-halflings-regulard41d.html" />
+    <Content Remove="wwwroot\assets\css\images\controls.html" />
+    <Content Remove="wwwroot\assets\css\ionicons.min.css" />
+    <Content Remove="wwwroot\assets\css\main.css" />
+    <Content Remove="wwwroot\assets\css\responsive.css" />
+    <Content Remove="wwwroot\assets\css\style.css" />
+    <Content Remove="wwwroot\assets\fonts\fontawesome-webfont93e3.eot" />
+    <Content Remove="wwwroot\assets\fonts\fontawesome-webfont93e3.html" />
+    <Content Remove="wwwroot\assets\fonts\fontawesome-webfont93e3.svg" />
+    <Content Remove="wwwroot\assets\fonts\fontawesome-webfont93e3.ttf" />
+    <Content Remove="wwwroot\assets\fonts\fontawesome-webfont93e3.woff" />
+    <Content Remove="wwwroot\assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Remove="wwwroot\assets\fonts\ionicons28b5.eot" />
+    <Content Remove="wwwroot\assets\fonts\ionicons28b5.svg" />
+    <Content Remove="wwwroot\assets\fonts\ionicons28b5.ttf" />
+    <Content Remove="wwwroot\assets\fonts\ionicons28b5.woff" />
+    <Content Remove="wwwroot\assets\fonts\Simple-Line-Icons.eot" />
+    <Content Remove="wwwroot\assets\fonts\Simple-Line-Icons.svg" />
+    <Content Remove="wwwroot\assets\fonts\Simple-Line-Icons.ttf" />
+    <Content Remove="wwwroot\assets\fonts\Simple-Line-Icons.woff" />
+    <Content Remove="wwwroot\assets\fonts\Simple-Line-Iconsd41d.eot" />
+    <Content Remove="wwwroot\assets\images\avatar-1.jpg" />
+    <Content Remove="wwwroot\assets\images\avatar-2.jpg" />
+    <Content Remove="wwwroot\assets\images\blog-img-1.jpg" />
+    <Content Remove="wwwroot\assets\images\blog-img-2.jpg" />
+    <Content Remove="wwwroot\assets\images\blog-img-3.jpg" />
+    <Content Remove="wwwroot\assets\images\company-logo-1.jpg" />
+    <Content Remove="wwwroot\assets\images\company-logo-2.jpg" />
+    <Content Remove="wwwroot\assets\images\img-1.jpg" />
+    <Content Remove="wwwroot\assets\images\parallax-bg.jpg" />
+    <Content Remove="wwwroot\assets\images\pdf-icon.jpg" />
+    <Content Remove="wwwroot\assets\images\portfolio\5\img-1.jpg" />
+    <Content Remove="wwwroot\assets\images\portfolio\5\img-2.jpg" />
+    <Content Remove="wwwroot\assets\images\portfolio\5\img-3.jpg" />
+    <Content Remove="wwwroot\assets\images\portfolio\5\img-4.jpg" />
+    <Content Remove="wwwroot\assets\images\portfolio\5\img-5.jpg" />
+    <Content Remove="wwwroot\assets\images\portfolio\5\img-7.jpg" />
+    <Content Remove="wwwroot\assets\images\portfolio\5\img-8.jpg" />
+    <Content Remove="wwwroot\assets\images\portfolio\5\img-9.jpg" />
+    <Content Remove="wwwroot\assets\images\post-img.jpg" />
+    <Content Remove="wwwroot\assets\images\small-img-1.jpg" />
+    <Content Remove="wwwroot\assets\images\small-img-2.jpg" />
+    <Content Remove="wwwroot\assets\images\small-img.jpg" />
+    <Content Remove="wwwroot\assets\images\word-icon.jpg" />
+    <Content Remove="wwwroot\assets\img\cd-arrow.svg" />
+    <Content Remove="wwwroot\assets\img\cd-socials.svg" />
+    <Content Remove="wwwroot\assets\js\main.js" />
+    <Content Remove="wwwroot\assets\js\vendors\bootstrap.min.js" />
+    <Content Remove="wwwroot\assets\js\vendors\jquery.isotope.min.js" />
+    <Content Remove="wwwroot\assets\js\vendors\jquery\jquery.min.js" />
+    <Content Remove="wwwroot\assets\js\vendors\map.js" />
+    <Content Remove="wwwroot\assets\js\vendors\modernizr.js" />
+    <Content Remove="wwwroot\assets\js\vendors\owl.carousel.min.js" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\admin\assets\js\calender.js" />
+    <None Include="wwwroot\admin\assets\js\charts.js" />
+    <None Include="wwwroot\admin\assets\js\chat.js" />
+    <None Include="wwwroot\admin\assets\js\dashboard.js" />
+    <None Include="wwwroot\admin\assets\js\dashboard_v2.js" />
+    <None Include="wwwroot\admin\assets\js\datatables.js" />
+    <None Include="wwwroot\admin\assets\js\email_comman.js" />
+    <None Include="wwwroot\admin\assets\js\form_elements.js" />
+    <None Include="wwwroot\admin\assets\js\form_validations.js" />
+    <None Include="wwwroot\admin\assets\js\google_maps.js" />
+    <None Include="wwwroot\admin\assets\js\group_list.js" />
+    <None Include="wwwroot\admin\assets\js\icon.js" />
+    <None Include="wwwroot\admin\assets\js\notifications.js" />
+    <None Include="wwwroot\admin\assets\js\search_results.js" />
+    <None Include="wwwroot\admin\assets\js\support_ticket.js" />
+    <None Include="wwwroot\admin\assets\js\taginput.js" />
+    <None Include="wwwroot\admin\assets\js\vector_maps.js" />
+    <None Include="wwwroot\admin\assets\js\widgets.js" />
+    <None Include="wwwroot\admin\assets\plugins\boostrap-clockpicker\bootstrap-clockpicker.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\boostrap-form-wizard\js\jquery.bootstrap.wizard.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\boostrap-slider\js\bootstrap-slider.js" />
+    <None Include="wwwroot\admin\assets\plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
+    <None Include="wwwroot\admin\assets\plugins\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <None Include="wwwroot\admin\assets\plugins\bootstrap-select2\select2.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\bootstrap-tag\bootstrap-tagsinput.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\bootstrap-timepicker\js\bootstrap-timepicker.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\bootstrap-wysihtml5\bootstrap-wysihtml5.js" />
+    <None Include="wwwroot\admin\assets\plugins\bootstrap-wysihtml5\wysihtml5-0.3.0.js" />
+    <None Include="wwwroot\admin\assets\plugins\bootstrapv3\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\admin\assets\plugins\bootstrapv3\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\admin\assets\plugins\bootstrapv3\js\bootstrap.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\datatables-responsive\js\datatables.responsive.js" />
+    <None Include="wwwroot\admin\assets\plugins\datatables-responsive\js\lodash.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\dropzone\dropzone.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\font-awesome\fonts\fontawesome-webfont93e3.svg" />
+    <None Include="wwwroot\admin\assets\plugins\font-awesome\fonts\fontawesome-webfont93e3.woff2" />
+    <None Include="wwwroot\admin\assets\plugins\fullcalendar\fullcalendar.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\ios-switch\ios7-switch.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-autonumeric\autoNumeric.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-block-ui\jqueryblockui.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-block-ui\jqueryblockui.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-datatable\extra\js\dataTables.tableTools.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-datatable\js\jquery.dataTables.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-easy-pie-chart\js\jquery.easypiechart.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-flot\jquery.flot.animator.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-flot\jquery.flot.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-flot\jquery.flot.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-flot\jquery.flot.orderBars.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-flot\jquery.flot.selection.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-flot\jquery.flot.time.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-gmap\gmaps.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-inputmask\jquery.inputmask.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-jvectormap\js\jquery-jvectormap-1.2.2.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-jvectormap\js\jquery-jvectormap-us-lcc-en.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-jvectormap\js\jquery-jvectormap-world-mill-en.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-metrojs\MetroJs.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-mixitup\jquery.mixitup.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-morris-chart\js\morris.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-nestable\jquery.nestable.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-notifications\js\demo\demo.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-notifications\js\demo\location-sel.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-notifications\js\demo\theme-sel.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-notifications\js\messenger-theme-future.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-notifications\js\messenger.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-numberAnimate\jquery.animateNumbers.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-ricksaw-chart\js\d3.v2.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-ricksaw-chart\js\raphael-min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-ricksaw-chart\js\rickshaw.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-scrollbar\jquery.scrollbar.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-slider\jquery.sidr.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-sparkline\jquery-sparkline.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-superbox\js\superbox.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-ui-touch\jquery.ui.touch-punch.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-ui\jquery-ui-1.10.1.custom.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-unveil\jquery.unveil.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery-validation\js\jquery.validate.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\jquery\jquery-1.11.3.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\Mapplic\js\hammer.js" />
+    <None Include="wwwroot\admin\assets\plugins\Mapplic\js\jquery.easing.js" />
+    <None Include="wwwroot\admin\assets\plugins\Mapplic\js\jquery.mousewheel.js" />
+    <None Include="wwwroot\admin\assets\plugins\Mapplic\mapplic\images\closedhand.cur" />
+    <None Include="wwwroot\admin\assets\plugins\Mapplic\mapplic\images\openhand.cur" />
+    <None Include="wwwroot\admin\assets\plugins\Mapplic\mapplic\mapplic.js" />
+    <None Include="wwwroot\admin\assets\plugins\modernizr.js" />
+    <None Include="wwwroot\admin\assets\plugins\owl-carousel\owl.carousel.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\pace\pace.min.js" />
+    <None Include="wwwroot\admin\assets\plugins\shape-hover\fonts\codropsicons\codropsicons.svg" />
+    <None Include="wwwroot\admin\assets\plugins\shape-hover\js\snap.svg-min.js" />
+    <None Include="wwwroot\admin\assets\plugins\skycons\skycons.js" />
+    <None Include="wwwroot\admin\webarch\fonts\custom-set.svg" />
+    <None Include="wwwroot\admin\webarch\js\webarch.js" />
+    <None Include="wwwroot\assets\css\bootstrap\bootstrap.min.css" />
+    <None Include="wwwroot\assets\css\font-awesome.min.css" />
+    <None Include="wwwroot\assets\css\fonts\glyphicons-halflings-regular-2.html" />
+    <None Include="wwwroot\assets\css\fonts\glyphicons-halflings-regular-3.html" />
+    <None Include="wwwroot\assets\css\fonts\glyphicons-halflings-regular-4.html" />
+    <None Include="wwwroot\assets\css\fonts\glyphicons-halflings-regular-5.html" />
+    <None Include="wwwroot\assets\css\fonts\glyphicons-halflings-regular.html" />
+    <None Include="wwwroot\assets\css\fonts\glyphicons-halflings-regulard41d.html" />
+    <None Include="wwwroot\assets\css\images\controls.html" />
+    <None Include="wwwroot\assets\css\ionicons.min.css" />
+    <None Include="wwwroot\assets\css\main.css" />
+    <None Include="wwwroot\assets\css\responsive.css" />
+    <None Include="wwwroot\assets\css\style.css" />
+    <None Include="wwwroot\assets\fonts\fontawesome-webfont93e3.eot" />
+    <None Include="wwwroot\assets\fonts\fontawesome-webfont93e3.html" />
+    <None Include="wwwroot\assets\fonts\fontawesome-webfont93e3.svg" />
+    <None Include="wwwroot\assets\fonts\fontawesome-webfont93e3.ttf" />
+    <None Include="wwwroot\assets\fonts\fontawesome-webfont93e3.woff" />
+    <None Include="wwwroot\assets\fonts\fontawesome-webfontd41d.eot" />
+    <None Include="wwwroot\assets\fonts\ionicons28b5.eot" />
+    <None Include="wwwroot\assets\fonts\ionicons28b5.svg" />
+    <None Include="wwwroot\assets\fonts\ionicons28b5.ttf" />
+    <None Include="wwwroot\assets\fonts\ionicons28b5.woff" />
+    <None Include="wwwroot\assets\fonts\Simple-Line-Icons.eot" />
+    <None Include="wwwroot\assets\fonts\Simple-Line-Icons.svg" />
+    <None Include="wwwroot\assets\fonts\Simple-Line-Icons.ttf" />
+    <None Include="wwwroot\assets\fonts\Simple-Line-Icons.woff" />
+    <None Include="wwwroot\assets\fonts\Simple-Line-Iconsd41d.eot" />
+    <None Include="wwwroot\assets\images\avatar-1.jpg" />
+    <None Include="wwwroot\assets\images\avatar-2.jpg" />
+    <None Include="wwwroot\assets\images\blog-img-1.jpg" />
+    <None Include="wwwroot\assets\images\blog-img-2.jpg" />
+    <None Include="wwwroot\assets\images\blog-img-3.jpg" />
+    <None Include="wwwroot\assets\images\company-logo-1.jpg" />
+    <None Include="wwwroot\assets\images\company-logo-2.jpg" />
+    <None Include="wwwroot\assets\images\img-1.jpg" />
+    <None Include="wwwroot\assets\images\parallax-bg.jpg" />
+    <None Include="wwwroot\assets\images\pdf-icon.jpg" />
+    <None Include="wwwroot\assets\images\portfolio\5\img-1.jpg" />
+    <None Include="wwwroot\assets\images\portfolio\5\img-2.jpg" />
+    <None Include="wwwroot\assets\images\portfolio\5\img-3.jpg" />
+    <None Include="wwwroot\assets\images\portfolio\5\img-4.jpg" />
+    <None Include="wwwroot\assets\images\portfolio\5\img-5.jpg" />
+    <None Include="wwwroot\assets\images\portfolio\5\img-7.jpg" />
+    <None Include="wwwroot\assets\images\portfolio\5\img-8.jpg" />
+    <None Include="wwwroot\assets\images\portfolio\5\img-9.jpg" />
+    <None Include="wwwroot\assets\images\post-img.jpg" />
+    <None Include="wwwroot\assets\images\small-img-1.jpg" />
+    <None Include="wwwroot\assets\images\small-img-2.jpg" />
+    <None Include="wwwroot\assets\images\small-img.jpg" />
+    <None Include="wwwroot\assets\images\word-icon.jpg" />
+    <None Include="wwwroot\assets\img\cd-arrow.svg" />
+    <None Include="wwwroot\assets\img\cd-socials.svg" />
+    <None Include="wwwroot\assets\js\main.js" />
+    <None Include="wwwroot\assets\js\vendors\bootstrap.min.js" />
+    <None Include="wwwroot\assets\js\vendors\jquery.isotope.min.js" />
+    <None Include="wwwroot\assets\js\vendors\jquery\jquery.min.js" />
+    <None Include="wwwroot\assets\js\vendors\map.js" />
+    <None Include="wwwroot\assets\js\vendors\modernizr.js" />
+    <None Include="wwwroot\assets\js\vendors\owl.carousel.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="3.1.9" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\" />
+    <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="AppCode\Resources\LayoutResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LayoutResource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="AppCode\Resources\LayoutResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LayoutResource.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Cv.Resources</CustomToolNamespace>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,42 @@
+﻿@model List<Post>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="col-md-8">
+    <div class="inside-sec">
+        <!-- BIO AND SKILLS -->
+        <h5 class="tittle">BLOG</h5>
+
+        <!-- Blog -->
+        <section class="blog blog-page padding-20 padding-top-50 padding-bottom-50 ">
+
+
+            @foreach (var item in Model)
+            {
+                <article>
+                    <img style="min-width:100%;" class="img-responsive" src="~/uploads/@item.ImagePath" alt="">
+                    <div class="post-info">
+                        <div class="post-in">
+                            <div class="extra"> <span><i class="icon-calendar"></i>@item.CreatedDate.ToString("dd,mm,yyyy")</span> <span class="margin-left-15"><i class="icon-user"></i>@item.Author</span> <span class="margin-left-15"><i class="icon-bubbles"></i> Featured</span></div>
+                            <a href="#." class="tittle-post"> @item.Title </a>
+                            <p>@item.Description</p>
+                            <a  asp-controller="blog" asp-action="Details" asp-route-id="@item.Id" class="btn-1">Read MOre <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+            }
+
+
+            <!-- Pagination -->
+            <ul class="pagination">
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">Next</a></li>
+            </ul>
+        </section>
+    </div>
+</div>

@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CVSolution",
+    "\\CVSolution\\CVProject",
+    "\\CVSolution\\CVProject\\Controllers"
   ],
+  "SelectedNode": "\\CVSolution\\CVProject\\Controllers\\AboutMeController.cs",
   "PreviewInSolutionExplorer": false
 }

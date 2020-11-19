@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "ckeditor5@23.1.0",
+      "destination": "wwwroot/lib/ckeditor5/"
+    },
+    {
+      "library": "sweetalert@2.1.2",
+      "destination": "wwwroot/lib/sweetalert/"
+    },
+    {
+      "library": "jquery@3.5.1",
+      "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "imager.js@0.5.1",
+      "destination": "wwwroot/lib/imager.js/"
+    },
+    {
+      "library": "rickshaw@1.7.1",
+      "destination": "wwwroot/admin/assets/plugins/rickshaw/"
+    }
+  ]
+}

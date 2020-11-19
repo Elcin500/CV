@@ -1,0 +1,256 @@
+﻿@inject CVDbContext db
+
+@{
+    var person = db.Persons.FirstOrDefault();
+
+    var appinfo = db.AppInfos.FirstOrDefault();
+
+
+    var posts = db.Posts.ToList();
+    var postCount = posts.Count();
+
+    if (postCount >= 3 && postCount > 0)
+    {
+        posts = db.Posts.Take(3).ToList();
+    }
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!-- StyleSheets -->
+    <link rel="stylesheet" href="~/assets/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/assets/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/bd705139b3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/assets/css/main.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/responsive.css">
+
+    <!-- FontsOnline -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <!-- JavaScripts -->
+    <script src="~/assets/js/vendors/modernizr.js"></script>
+</head>
+<body>
+
+    <!-- Page Wrapper -->
+    <div id="wrap">
+
+        <!-- Header -->
+        <nav id="cd-lateral-nav">
+            <h5 class="tittle">MotiCv</h5>
+            <ul class="cd-navigation">
+                <li><a asp-controller="aboutme" asp-action="index">@LayoutResource.About_Me</a></li>
+                <li><a asp-controller="portfolio" asp-action="index">@LayoutResource.Portfolio</a></li>
+                <li><a asp-controller="blog" asp-action="index">@LayoutResource.Blog</a></li>
+                <li><a asp-area="admin" asp-controller="AppInfoAndPerson" asp-action="Index">@LayoutResource.Edit_Resume</a></li>
+                <li><a asp-area="admin" asp-controller="dashBoard" asp-action="Index">Admin</a></li>
+            </ul>
+            <h5 class="tittle">Latest Post</h5>
+            <ul class="latest-post">
+
+                <!-- Post Small -->
+                @foreach (var item in posts)
+                {
+                    <li>
+                        <div class="media">
+                            <div class="media-left"> <a href="#."><img src="~/uploads/@item.ImagePath" alt=""></a></div>
+                            <div class="media-body">
+                                <a href="#.">
+                                  @item.Title
+                                </a>
+                                <p class="font-crimson font-italic">@item.Author</p>
+                            </div>
+                        </div>
+                    </li>
+                }
+
+            </ul>
+        </nav>
+        <!-- End Header -->
+        <!-- Content -->
+        <main class="cd-main-content">
+            <div id="content">
+                <div class="resume">
+                    <div class="container">
+
+                        <!-- NAV LINKS -->
+                        <nav>
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-tabis" aria-expanded="false"> <span class="tittle">MENU</span> <span class="fa fa-navicon icon-nav"></span> </button>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="nav-tabis">
+                                <ul class="isop-filter main-nav">
+                                    <li class="active"><a asp-controller="aboutme" asp-action="index"><i class="icon-user"></i>@LayoutResource.About_Me</a></li>
+                                    <li><a asp-controller="resume" asp-action="index"><i class="icon-book-open"></i>@LayoutResource.Resume</a></li>
+                                    <li><a asp-controller="portfolio" asp-action="index"><i class="icon-rocket"></i>@LayoutResource.Portfolio</a></li>
+                                    <li><a asp-controller="blog" asp-action="index"><i class="icon-note"></i>@LayoutResource.Blog</a></li>
+                                    <li><a asp-controller="aboutme" asp-action="contact"><i class="icon-pencil"></i>@LayoutResource.Contact_Me</a></li>
+                                    <li> <a id="cd-menu-trigger" href="#0"><span class="cd-menu-icon"></span></a>  </li>
+                                </ul>
+                                   
+                            </div>
+                        </nav>
+                        <!-- NAV LINKS END -->
+                        <!-- TOP HEAD -->
+                        <div class="top-head">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h4>Resume </h4>
+                                    <a asp-area="admin" asp-controller="AppInfoAndPerson" asp-action="Index">@LayoutResource.Edit_Resume</a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="dropdown">
+                                        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Language
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" asp-route-lang="en">English</a>
+                                            <a class="dropdown-item" asp-route-lang="az">Azərbycan</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Resume -->
+                        <div class="row">
+
+                            <!-- Sidebar -->
+                            <div class="col-md-4">
+                                <div class="side-bar">
+
+                                    <!-- Professional Details -->
+                                    <h5 class="tittle">Professional Details</h5>
+                                    <img src="~/assets/images/avatar.jpg" class="img-responsive" alt="">
+                                    <ul class="personal-info">
+                                        <li>
+                                            <p> <span> @LayoutResource.Name</span> @person.FullName </p>
+                                        </li>
+                                        <li>
+                                            <p> <span> @LayoutResource.Age</span> @person.Age </p>
+                                        </li>
+                                        <li>
+                                            <p> <span> @LayoutResource.Location</span> @person.Location </p>
+                                        </li>
+                                        <li>
+                                            <p> <span> @LayoutResource.Experience</span> @person.ExperienceYear </p>
+                                        </li>
+                                        <li>
+                                            <p> <span> @LayoutResource.Degree</span> @person.Degree </p>
+                                        </li>
+                                        <li>
+                                            <p> <span> @LayoutResource.Carrear</span> @person.CareerLevel </p>
+                                        </li>
+                                        <li>
+                                            <p> <span> @LayoutResource.Phone</span> @person.Phone  </p>
+                                        </li>
+                                        <li>
+                                            <p> <span> @LayoutResource.Fax</span> @person.Fax </p>
+                                        </li>
+                                        <li>
+                                            <p> <span> E-mail</span> <a href="#.">@person.Email </a> </p>
+                                        </li>
+                                        <li>
+                                            <p> <span> @LayoutResource.Web_Site</span><a href="#."> @person.Website  </a></p>
+                                        </li>
+                                    </ul>
+
+                                    <!-- Attachments -->
+                                    <h5 class="tittle">Attachments</h5>
+                                    <div class="attach bor-btm padding-25">
+                                        <ul>
+                                            <li>
+                                                <p><img src="~/assets/images/pdf-icon.jpg" alt=""> Curriculum-Vitae.pdf <a href="#."><i class="fa fa-cloud-download"></i></a> <a href="#."><i class="fa fa-eye"></i></a></p>
+                                            </li>
+                                            <li>
+                                                <p><img src="~/assets/images/word-icon.jpg" alt=""> COE.docx <a href="#."><i class="fa fa-cloud-download"></i></a> <a href="#."><i class="fa fa-eye"></i></a></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Social Profiles -->
+                                    <h5 class="tittle">Social Profiles</h5>
+                                    <div class="social-icon bor-btm padding-25">
+                                        <ul>
+                                            <li> <a href="@appinfo.FacebookLink"> <i class="fa fa-facebook"></i></a> </li>
+                                            <li> <a href="@appinfo.GithubLink"> <i class="fa fa-github"></i></a> </li>
+                                            <li> <a href="@appinfo.TwitterLink"> <i class="fa fa-twitter"></i></a> </li>
+                                            <li> <a href="@appinfo.Linkedin"> <i class="fa fa-linkedin"></i></a> </li>
+                                            <li> <a href="@appinfo.InstagramLink"> <i class="fa fa-instagram"></i></a> </li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Contact Me -->
+                                    <h5 class="tittle">Contact Me</h5>
+                                    <div class="contact padding-25">
+                                        <!-- Success Msg -->
+                                        <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>Thank You. Your Message has been Submitted</div>
+
+                                        <!-- FORM -->
+                                        <form role="form" asp-controller="aboutMe" asp-action="Contact" id="contact_form" class="contact-form" method="post">
+                                            @if (!string.IsNullOrWhiteSpace(ViewBag.Message))
+                                            {
+                                                <div class="alert alert-success">
+                                                    @ViewBag.Message
+                                                </div>
+                                            }
+                                            <ul class="row">
+                                                <li class="col-sm-12">
+                                                    <label>
+                                                        <input type="text" name="email" class="form-control"  id="email" placeholder="Email">
+                                                    </label>
+                                                </li>
+                                                <li class="col-sm-12">
+                                                    <label>
+                                                        <input type="text" name="subject" class="form-control" id="company" placeholder="@LayoutResource.Subject">
+                                                    </label>
+                                                </li>
+                                                <li class="col-sm-12">
+                                                    <label>
+                                                        <textarea class="form-control" name="message" id="message" rows="5" placeholder="@LayoutResource.Message"></textarea>
+                                                    </label>
+                                                </li>
+                                                <li class="col-sm-12">
+                                                    <button type="submit" value="submit" id="btn_submit" onClick="proceed();">@LayoutResource.Send_Message</button>
+                                                </li>
+                                            </ul>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- MAIN CONTENT -->
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- End Content -->
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="rights">
+                <p>© Copyright 2016 MotiCV. All right reserved.</p>
+            </div>
+        </footer>
+        <!-- End Footer -->
+
+    </div>
+    <!-- End Page Wrapper -->
+    <!-- JavaScripts -->
+    <script src="~/assets/js/vendors/jquery/jquery.min.js"></script>
+    <script src="~/assets/js/vendors/bootstrap.min.js"></script>
+    <script src="~/assets/js/vendors/owl.carousel.min.js"></script>
+    <script src="~/assets/js/vendors/jquery.isotope.min.js"></script>
+    <script src="~/assets/js/main.js"></script>
+
+</body>
+</html>

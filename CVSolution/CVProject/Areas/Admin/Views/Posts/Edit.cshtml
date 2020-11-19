@@ -1,0 +1,157 @@
+﻿@model CVProject.Models.Entity.Post
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="content">
+    <ul class="breadcrumb">
+        <li>
+            <p>YOU ARE HERE</p>
+        </li>
+        <li><a href="#" class="active">Paylasimlar</a> </li>
+    </ul>
+    <div class="page-title">
+        <i class="icon-custom-left"></i>
+        <h3><a asp-action="Index">Paylasimlar</a> - <span class="semi-bold">Duzelis</span></h3>
+    </div>
+    <div class="row" id="inbox-wrapper">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="grid simple">
+                        <div class="grid-body no-border email-body">
+                            <br>
+                            <div class="row-fluid">
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <form asp-action="Edit" enctype="multipart/form-data">
+                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                            <input type="hidden" asp-for="Id" />
+                                            <div class="form-group">
+                                                <label asp-for="Title" class="control-label"></label>
+                                                <input asp-for="Title" class="form-control" />
+                                                <span asp-validation-for="Title" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="Author" class="control-label"></label>
+                                                <input asp-for="Author" class="form-control" />
+                                                <span asp-validation-for="Author" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="blogFile" data-imgurl="/uploads/@Model.ImagePath" id="blogFile-viewer">
+                                                    <input type="hidden" asp-for="ImagePathTemp" value="@Model.ImagePath" />
+                                                    <span>&times;</span>
+                                                </label>
+                                                <input type="file" name="blogImage" id="blogFile" accept="image/x-png,image/gif,image/jpeg,image.jpg" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="Description" class="control-label"></label>
+                                                <input asp-for="Description" class="form-control" />
+                                                <span asp-validation-for="Description" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" value="Save" class="btn btn-default" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+@section scripts{
+
+    <script src="~/lib/ckeditor5/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#Body'))
+            .catch(error => {
+                console.error(error);
+            });
+
+        $('#blogFile-viewer > span').click(function (e) {
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            $(e.currentTarget).closest('label').css('background-image', 'none');
+            $(e.currentTarget).closest('label').find('input').val('');
+
+            $('#blogFile').val('');
+
+
+        })
+
+        $('#blogFile').change(function (e) {
+
+            let reader = new FileReader();
+            reader.addEventListener("load", function () {
+                $('#blogFile-viewer').css({
+                    'background-image': `url(${reader.result})`
+                })
+            }, false);
+
+            reader.readAsDataURL(e.target.files[0]);
+
+            console.log('changed');
+
+        });
+
+        let url = $('#blogFile-viewer')
+            .click(function () {
+                $('#blogFile-viewer').css('background-image','none')
+            })
+            .data('imgurl');
+
+        if (url != undefined) {
+            $('#blogFile-viewer').css({
+                'background-image': `url(${url})`
+            })
+        }
+
+    </script>
+
+}
+
+
+@section css{
+    <style>
+        .ck-editor__editable {
+            min-height: 200px !important;
+        }
+
+        #blogFile {
+            display: none;
+        }
+
+        #blogFile-viewer {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+            #blogFile-viewer > span {
+                display: inline-block;
+                padding: 20px;
+                border: 1px solid red;
+                cursor: pointer;
+            }
+    </style>
+}
